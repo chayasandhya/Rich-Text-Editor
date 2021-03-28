@@ -1,0 +1,43 @@
+.page_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  background-color: white;
+  height: 70vh;
+  position: relative;
+}
+
+@media only screen and (max-width: 600px) {
+  .page_container h1 {
+    font-size: 20px;
+  }
+}
+
+.default_header {
+  color: grey;
+  outline: none;
+  border: none;
+  background: none;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.header {
+  color: black;
+}
+
+.default_para {
+  color: grey;
+  outline: none;
+  border: none;
+  background: none;
+  font-size: 20px;
+  height: 250px;
+  width: 650px;
+}
+
+.para {
+  color: black;
+}
