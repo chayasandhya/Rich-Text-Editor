@@ -9,9 +9,18 @@
   position: relative;
 }
 
-@media only screen and (max-width: 600px) {
+.text_container {
+  width: 90%;
+  padding: 20px;
+}
+
+@media only screen and (max-width: 700px) {
   .page_container h1 {
     font-size: 20px;
+  }
+
+  .page_container .para {
+    font-size: 12px;
   }
 }
 
@@ -20,8 +29,9 @@
   outline: none;
   border: none;
   background: none;
-  font-size: 30px;
+  font-size: 35px;
   font-weight: bold;
+  padding: 10px 0px;
 }
 
 .header {

@@ -26,33 +26,49 @@ function Tooltip({ position, textAreaRef }) {
     document.execCommand("fontSize", false, size);
   };
 
+  const fontColor = (color) => {
+    document.execCommand("foreColor", false, color);
+  };
+
   return (
     <span
-      style={{ left: position.x - 120 + "px", top: position.y - 160 + "px" }}
+      style={{ left: position.x - 120 + "px", top: position.y - 180 + "px" }}
       className="tooltip_container"
     >
-      <div style={{ fontWeight: "bold" }} onMouseDown={(evt) => makeBold(evt)}>
-        B
+      <div
+        className="tooltip_btn"
+        style={{ fontWeight: "bold" }}
+        onMouseDown={(evt) => makeBold(evt)}
+      >
+        B<span className="short_cut_key">Ctrl+B</span>
       </div>
       <div
+        className="tooltip_btn"
         style={{ fontStyle: "italic" }}
         onMouseDown={(evt) => makeItalic(evt)}
       >
-        i
+        i<span className="short_cut_key">Ctrl+I</span>
       </div>
       <div
+        className="tooltip_btn"
         style={{ textDecoration: "underline" }}
         onMouseDown={(evt) => makeUnderLine(evt)}
       >
-        U
+        U<span className="short_cut_key">Ctrl+U</span>
       </div>
-      <div onMouseDown={(evt) => increaseFontSize(fontSize + 1)}>A</div>
       <div
-        style={{ fontSize: "10px" }}
+        className="tooltip_btn"
+        onMouseDown={(evt) => increaseFontSize(fontSize + 1)}
+      >
+        A
+      </div>
+      <div
+        style={{ fontSize: "10px", alignItems: "center" }}
         onMouseDown={(evt) => decreaseFontSize(fontSize - 1)}
       >
         A
       </div>
+      <div onMouseDown={(evt) => fontColor("9AFF33")}>Color</div>
     </span>
   );
 }

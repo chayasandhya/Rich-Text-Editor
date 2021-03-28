@@ -17,12 +17,16 @@ function Page() {
 
   const headerChange = (value) => {
     setHeader(value);
-    setHeaderClass([...headerclass, "header"]);
+    if (!headerclass.includes("header")) {
+      setHeaderClass([...headerclass, "header"]);
+    }
   };
 
   const paraChange = (value) => {
     if (para !== value) {
-      setParaClass([...paraclass, "para"]);
+      if (!paraclass.includes("para")) {
+        setParaClass([...paraclass, "para"]);
+      }
     }
   };
 
@@ -40,31 +44,33 @@ function Page() {
 
   return (
     <div className="page_container">
-      <input
-        className={headerclass.join(" ")}
-        type="text"
-        value={header}
-        onClick={() => {
-          return header == "Untitled" ? setHeader("") : null;
-        }}
-        onChange={(e) => {
-          headerChange(e.target.value);
-        }}
-      />
+      <div className="text_container">
+        <input
+          className={headerclass.join(" ")}
+          type="text"
+          value={header}
+          onClick={() => {
+            return header == "Untitled" ? setHeader("") : null;
+          }}
+          onChange={(e) => {
+            headerChange(e.target.value);
+          }}
+        />
 
-      <div
-        contentEditable
-        className={paraclass.join(" ")}
-        onClick={() => {
-          return para == "Type something..." ? setPara("") : para;
-        }}
-        onInput={(e) => {
-          paraChange(e.target.innerText);
-        }}
-        onMouseUpCapture={(e) => selectedText(e)}
-        ref={textAreaRef}
-      >
-        {para}
+        <div
+          contentEditable
+          className={paraclass.join(" ")}
+          onClick={() => {
+            return para == "Type something..." ? setPara("") : para;
+          }}
+          onInput={(e) => {
+            paraChange(e.target.innerText);
+          }}
+          onMouseUpCapture={(e) => selectedText(e)}
+          ref={textAreaRef}
+        >
+          {para}
+        </div>
       </div>
 
       {highlighted ? (
